@@ -53,6 +53,10 @@ app.get("/", (req, res) => {
 app.get("/style.css", (req, res) => {
     res.sendFile(path.join(__dirname, "style.css"));
 });
+app.get("/script.js", (req, res) => {
+    res.type("application/javascript");
+    res.sendFile(path.join(__dirname, "script.js"));
+});
 // ==========================================
 // Health Check
 // ==========================================
