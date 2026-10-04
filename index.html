@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>STUCKZ AI — Intelligent Workspace</title>
+
+  <meta
+    name="description"
+    content="STUCKZ AI — an intelligent AI workspace for conversations, voice, files and productivity."
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =========================================================
+       APP
+  ========================================================== -->
+
+  <div class="app" id="app">
+
+    <!-- =======================================================
+         TOP BAR
+    ======================================================== -->
+
+    <header class="topbar">
+
+      <div class="brand">
+        <div class="brand-mark">✦</div>
+
+        <div class="brand-text">
+          <strong>STUCKZ</strong>
+          <span>AI</span>
+        </div>
+      </div>
+
+      <div class="top-status">
+        <span class="status-dot"></span>
+        <span id="aiStatus">AI CORE ONLINE</span>
+      </div>
+
+      <div class="top-actions">
+
+        <button
+          class="icon-button"
+          id="themeButton"
+          type="button"
+          aria-label="Change theme"
+          title="Theme"
+        >
+          ◐
+        </button>
+
+        <button
+          class="icon-button"
+          id="settingsButton"
+          type="button"
+          aria-label="Settings"
+          title="Settings"
+        >
+          ⚙
+        </button>
+
+        <button
+          class="profile-button"
+          id="profileButton"
+          type="button"
+          aria-label="Profile"
+        >
+          S
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- =======================================================
+         MAIN WORKSPACE
+    ======================================================== -->
+
+    <main class="workspace">
+
+
+      <!-- =====================================================
+           LEFT — SESSIONS
+      ====================================================== -->
+
+      <aside class="sessions-panel" id="sessionsPanel">
+
+        <div class="panel-header">
+
+          <div>
+            <span class="panel-eyebrow">YOUR SPACE</span>
+            <h2>Sessions</h2>
+          </div>
+
+          <button
+            class="small-action"
+            id="newSessionButton"
+            type="button"
+            aria-label="New session"
+            title="New session"
+          >
+            +
+          </button>
+
+        </div>
+
+
+        <div class="session-search">
+
+          <span>⌕</span>
+
+          <input
+            type="text"
+            id="sessionSearch"
+            placeholder="Search sessions..."
+            autocomplete="off"
+          >
+
+        </div>
+
+
+        <div class="session-list" id="sessionList">
+
+          <button
+            class="session-item active"
+            type="button"
+            data-session="current"
+          >
+            <span class="session-icon">✦</span>
+
+            <span class="session-content">
+              <strong>New conversation</strong>
+              <small>Just now</small>
+            </span>
+          </button>
+
+          <button
+            class="session-item"
+            type="button"
+            data-session="workspace"
+          >
+            <span class="session-icon">◈</span>
+
+            <span class="session-content">
+              <strong>Workspace</strong>
+              <small>Recent</small>
+            </span>
+          </button>
+
+          <button
+            class="session-item"
+            type="button"
+            data-session="ideas"
+          >
+            <span class="session-icon">◇</span>
+
+            <span class="session-content">
+              <strong>Website project</strong>
+              <small>Recent</small>
+            </span>
+          </button>
+
+        </div>
+
+
+        <div class="sessions-footer">
+
+          <button
+            class="clear-sessions-button"
+            id="clearSessionsButton"
+            type="button"
+          >
+            <span>⌫</span>
+            Clear conversation
+          </button>
+
+        </div>
+
+      </aside>
+
+
+      <!-- =====================================================
+           CENTER — AI SPACE
+      ====================================================== -->
+
+      <section class="ai-stage">
+
+
+        <!-- Mobile Controls -->
+
+        <div class="mobile-controls">
+
+          <button
+            class="mobile-control"
+            id="mobileSessionsButton"
+            type="button"
+          >
+            ☰
+          </button>
+
+          <span>STUCKZ AI</span>
+
+          <button
+            class="mobile-control"
+            id="mobileSettingsButton"
+            type="button"
+          >
+            ⚙
+          </button>
+
+        </div>
+
+
+        <!-- Conversation Area -->
+
+        <div class="conversation" id="conversation">
+
+
+          <!-- =================================================
+               WELCOME
+          ================================================== -->
+
+          <div class="welcome-state" id="welcomeState">
+
+            <div class="core-container">
+
+              <div class="core-orbit orbit-one"></div>
+              <div class="core-orbit orbit-two"></div>
+              <div class="core-orbit orbit-three"></div>
+
+              <div
+                class="ai-core"
+                id="aiCore"
+                aria-label="STUCKZ AI Core"
+              >
+
+                <div class="core-glow"></div>
+
+                <div class="core-ring"></div>
+
+                <div class="core-inner">
+                  <span class="core-symbol">✦</span>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="welcome-copy">
+
+              <span class="welcome-eyebrow">
+                PERSONAL AI WORKSPACE
+              </span>
+
+              <h1>
+                Meet your
+                <span>intelligent space.</span>
+              </h1>
+
+              <p>
+                Think, create, explore and solve with STUCKZ AI.
+              </p>
+
+            </div>
+
+
+            <!-- Suggested Prompts -->
+
+            <div class="suggestions">
+
+              <button
+                class="suggestion-card"
+                type="button"
+                data-prompt="Help me plan my day"
+              >
+                <span class="suggestion-icon">◷</span>
+
+                <span>
+                  <strong>Plan my day</strong>
+                  <small>Build a productive schedule</small>
+                </span>
+              </button>
+
+
+              <button
+                class="suggestion-card"
+                type="button"
+                data-prompt="Explain artificial intelligence in simple words"
+              >
+                <span class="suggestion-icon">✦</span>
+
+                <span>
+                  <strong>Explain something</strong>
+                  <small>Make complex topics simple</small>
+                </span>
+              </button>
+
+
+              <button
+                class="suggestion-card"
+                type="button"
+                data-prompt="Give me some creative website ideas"
+              >
+                <span class="suggestion-icon">⌁</span>
+
+                <span>
+                  <strong>Build an idea</strong>
+                  <small>Turn thoughts into concepts</small>
+                </span>
+              </button>
+
+
+              <button
+                class="suggestion-card"
+                type="button"
+                data-prompt="Help me write professional content"
+              >
+                <span class="suggestion-icon">Aa</span>
+
+                <span>
+                  <strong>Create content</strong>
+                  <small>Write faster and better</small>
+                </span>
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               MESSAGES
+          ================================================== -->
+
+          <div
+            class="messages"
+            id="messages"
+            aria-live="polite"
+          ></div>
+
+
+          <!-- =================================================
+               THINKING
+          ================================================== -->
+
+          <div
+            class="thinking-state"
+            id="thinkingState"
+            hidden
+          >
+
+            <div class="thinking-avatar">
+              ✦
+            </div>
+
+            <div class="thinking-content">
+
+              <span>STUCKZ AI is thinking</span>
+
+              <div class="thinking-dots">
+                <i></i>
+                <i></i>
+                <i></i>
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <!-- ===================================================
+             VOICE STATE
+        ==================================================== -->
+
+        <div
+          class="voice-state"
+          id="voiceState"
+          hidden
+        >
+
+          <div class="voice-core">
+
+            <div class="voice-pulse"></div>
+
+            <div class="voice-symbol">
+              ◉
+            </div>
+
+          </div>
+
+
+          <div class="voice-copy">
+
+            <span id="voiceStateTitle">
+              Listening...
+            </span>
+
+            <small id="voiceStateSubtitle">
+              Speak naturally. STUCKZ AI is listening.
+            </small>
+
+          </div>
+
+
+          <div class="voice-wave">
+
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+
+          </div>
+
+
+          <button
+            class="stop-voice-button"
+            id="stopVoiceButton"
+            type="button"
+          >
+            Stop
+          </button>
+
+        </div>
+
+
+        <!-- ===================================================
+             COMMAND AREA
+        ==================================================== -->
+
+        <div class="command-area">
+
+          <div class="command-box">
+
+            <form id="chatForm" autocomplete="off">
+
+
+              <!-- Attachment Button -->
+
+              <button
+                class="command-button"
+                id="attachButton"
+                type="button"
+                aria-label="Attach file"
+                title="Attach file"
+              >
+                +
+              </button>
+
+
+              <!-- Text -->
+
+              <div class="input-wrapper">
+
+                <textarea
+                  id="messageInput"
+                  rows="1"
+                  maxlength="6000"
+                  placeholder="Ask STUCKZ anything..."
+                  aria-label="Message"
+                ></textarea>
+
+                <div
+                  class="attachments"
+                  id="attachments"
+                ></div>
+
+              </div>
+
+
+              <!-- Voice -->
+
+              <button
+                class="command-button voice-button"
+                id="voiceButton"
+                type="button"
+                aria-label="Start voice conversation"
+                title="Voice"
+              >
+                <span class="mic-icon"></span>
+              </button>
+
+
+              <!-- Send -->
+
+              <button
+                class="send-button"
+                id="sendButton"
+                type="submit"
+                aria-label="Send message"
+                title="Send message"
+              >
+                ↑
+              </button>
+
+            </form>
+
+
+            <!-- Hidden File Input -->
+
+            <input
+              type="file"
+              id="fileInput"
+              hidden
+              multiple
+              accept="image/*,.pdf,.txt,.doc,.docx"
+            />
+
+          </div>
+
+
+          <div class="command-footer">
+
+            <span id="commandHint">
+              Enter to send · Shift + Enter for new line
+            </span>
+
+            <span>
+              <span id="fileCount">0</span> files
+            </span>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================================
+           RIGHT — CONTEXT PANEL
+      ====================================================== -->
+
+      <aside
+        class="context-panel"
+        id="contextPanel"
+      >
+
+        <div class="context-header">
+
+          <div>
+            <span class="panel-eyebrow">LIVE CONTEXT</span>
+            <h2>Workspace</h2>
+          </div>
+
+          <button
+            class="small-action"
+            id="closeContextButton"
+            type="button"
+            aria-label="Close context panel"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+        <!-- AI Status -->
+
+        <div class="context-card ai-status-card">
+
+          <div class="mini-core" id="miniCore">
+            ✦
+          </div>
+
+          <div>
+
+            <span>AI STATE</span>
+
+            <strong id="aiStateTitle">
+              Ready
+            </strong>
+
+            <small id="aiStateDescription">
+              Waiting for your command.
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <!-- Quick Tools -->
+
+        <div class="context-section">
+
+          <div class="section-label">
+            QUICK TOOLS
+          </div>
+
+
+          <div class="tool-grid">
+
+            <button
+              class="tool-card"
+              type="button"
+              data-tool="voice"
+            >
+              <span>◉</span>
+              <strong>Voice</strong>
+              <small>Talk naturally</small>
+            </button>
+
+
+            <button
+              class="tool-card"
+              type="button"
+              data-tool="text"
+            >
+              <span>Aa</span>
+              <strong>Text</strong>
+              <small>Write anything</small>
+            </button>
+
+
+            <button
+              class="tool-card"
+              type="button"
+              data-tool="vision"
+            >
+              <span>◌</span>
+              <strong>Vision</strong>
+              <small>Understand images</small>
+            </button>
+
+
+            <button
+              class="tool-card"
+              type="button"
+              data-tool="files"
+            >
+              <span>□</span>
+              <strong>Files</strong>
+              <small>Upload documents</small>
+            </button>
+
+
+            <button
+              class="tool-card"
+              type="button"
+              data-tool="tools"
+            >
+              <span>⌁</span>
+              <strong>Tools</strong>
+              <small>Extend workspace</small>
+            </button>
+
+
+            <button
+              class="tool-card"
+              type="button"
+              data-tool="memory"
+            >
+              <span>◇</span>
+              <strong>Memory</strong>
+              <small>Remember context</small>
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- Workspace Stats -->
+
+        <div class="context-section">
+
+          <div class="section-label">
+            SESSION
+          </div>
+
+          <div class="stats-list">
+
+            <div class="stat-row">
+              <span>Messages</span>
+              <strong id="messageCount">0</strong>
+            </div>
+
+            <div class="stat-row">
+              <span>Mode</span>
+              <strong id="currentMode">Text</strong>
+            </div>
+
+            <div class="stat-row">
+              <span>Voice</span>
+              <strong id="voiceStatus">Ready</strong>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Context Notice -->
+
+        <div class="context-notice">
+
+          <span>✦</span>
+
+          <p>
+            STUCKZ AI is designed as an intelligent workspace.
+            Connect a secure AI backend to unlock real model responses.
+          </p>
+
+        </div>
+
+      </aside>
+
+    </main>
+
+
+    <!-- =======================================================
+         SETTINGS MODAL
+    ======================================================== -->
+
+    <div
+      class="modal-overlay"
+      id="settingsModal"
+      hidden
+    >
+
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="settingsTitle"
+      >
+
+        <div class="modal-header">
+
+          <div>
+            <span class="panel-eyebrow">PREFERENCES</span>
+            <h2 id="settingsTitle">Settings</h2>
+          </div>
+
+          <button
+            class="modal-close"
+            id="closeSettingsButton"
+            type="button"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+        <div class="settings-list">
+
+          <label class="setting-row">
+
+            <span>
+              <strong>Enter to send</strong>
+              <small>Press Enter to send your message.</small>
+            </span>
+
+            <input
+              type="checkbox"
+              id="enterToSend"
+              checked
+            >
+
+          </label>
+
+
+          <label class="setting-row">
+
+            <span>
+              <strong>Sound effects</strong>
+              <small>Use interface sound feedback.</small>
+            </span>
+
+            <input
+              type="checkbox"
+              id="soundEffects"
+              checked
+            >
+
+          </label>
+
+
+          <label class="setting-row">
+
+            <span>
+              <strong>Auto speak responses</strong>
+              <small>Read AI responses aloud.</small>
+            </span>
+
+            <input
+              type="checkbox"
+              id="autoSpeak"
+            >
+
+          </label>
+
+
+          <label class="setting-row">
+
+            <span>
+              <strong>Save sessions</strong>
+              <small>Keep conversations in this browser.</small>
+            </span>
+
+            <input
+              type="checkbox"
+              id="saveSessions"
+              checked
+            >
+
+          </label>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =======================================================
+         PROFILE MODAL
+    ======================================================== -->
+
+    <div
+      class="modal-overlay"
+      id="profileModal"
+      hidden
+    >
+
+      <div
+        class="modal profile-modal"
+        role="dialog"
+        aria-modal="true"
+      >
+
+        <div class="modal-header">
+
+          <div>
+            <span class="panel-eyebrow">ACCOUNT</span>
+            <h2>Your profile</h2>
+          </div>
+
+          <button
+            class="modal-close"
+            id="closeProfileButton"
+            type="button"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+        <div class="profile-card">
+
+          <div class="profile-avatar">
+            S
+          </div>
+
+          <div>
+            <strong>STUCKZ User</strong>
+            <span>Personal AI Workspace</span>
+          </div>
+
+        </div>
+
+
+        <div class="profile-info">
+
+          <div>
+            <span>Status</span>
+            <strong>Active</strong>
+          </div>
+
+          <div>
+            <span>Workspace</span>
+            <strong>STUCKZ AI</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =======================================================
+         FILE PREVIEW MODAL
+    ======================================================== -->
+
+    <div
+      class="modal-overlay"
+      id="fileModal"
+      hidden
+    >
+
+      <div
+        class="modal file-modal"
+        role="dialog"
+        aria-modal="true"
+      >
+
+        <div class="modal-header">
+
+          <div>
+            <span class="panel-eyebrow">ATTACHMENTS</span>
+            <h2>Files</h2>
+          </div>
+
+          <button
+            class="modal-close"
+            id="closeFileButton"
+            type="button"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+        <div
+          class="file-preview"
+          id="filePreview"
+        >
+
+          <div class="empty-file-state">
+            <span>□</span>
+            <strong>No files selected</strong>
+            <small>Attach files from the command bar.</small>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =======================================================
+         TOAST
+    ======================================================== -->
+
+    <div
+      class="toast"
+      id="toast"
+      hidden
+      role="status"
+      aria-live="polite"
+    >
+      <span>✦</span>
+      <p id="toastMessage">Done</p>
+    </div>
+
+
+    <!-- =======================================================
+         MOBILE OVERLAY
+    ======================================================== -->
+
+    <div
+      class="mobile-overlay"
+      id="mobileOverlay"
+      hidden
+    ></div>
+
+  </div>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================== -->
+
+  <script src="script.js"></script>
+
+</body>
+</html>
